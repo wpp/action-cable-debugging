@@ -2,6 +2,17 @@
 
 ## Setup:
 
+### Cable.yml
+
+Connecting to a redis container running locally on 6381
+
+```yaml
+development:
+  adapter: redis
+  url: redis://localhost:6381
+  channel_prefix: testing_chat
+```
+
 ### Action Cable Client
 
 Have one action cable client (`client.rb`) running.
@@ -13,17 +24,17 @@ Have one action cable client (`client.rb`) running.
 
 ### Broadcast source
 
-Have several (3) broadcast sources running.
+Have a broadcast source running (Also tested multiple runners (3)).
 
 In `broadcast.rb` we broadcast 100 000 messages to the cable client. After
 sending a message we sleep for 0.1 seconds.
 
-## Observeration:
+## Observerations
 
 At a certain point the client connects, but doesn't receive the subcription
 confirmation and therefore misses broadcast messages.
 
-`client.rb`:
+**`client.rb`:**
 
 ```log
 ...
@@ -41,7 +52,7 @@ confirmation and therefore misses broadcast messages.
 3595 Client connected
 ```
 
-rails server:
+**rails server:**
 
 ```log
 Started GET "/cable" for ::1 at 2017-08-01 12:40:53 +0200
@@ -64,9 +75,10 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrad
 Connection.connect
 ```
 
-Previous runs:
+### Run log
 
-1. failure occurred at message 2000
-2. failure didn't occurr (10000 msgs)
-3. failure occurred at message 3595
-4.
+1. failure at message #2000 (3 broadcast runners)
+2. failure didn't occurr (10000 msgs) (3 broadcast runners)
+3. failure at message #3595 (3 broadcast runners)
+4. failure at message #2367 (1 broadcast runner)
+5. failure at message #6285 (1 broadcast runner)
