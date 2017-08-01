@@ -2,6 +2,14 @@
 
 ## Setup:
 
+### commands
+
+```bash
+rails s -p 3001
+ruby client.rb
+rails runner broadcast.rb
+```
+
 ### Cable.yml
 
 Connecting to a redis container running locally on 6381
