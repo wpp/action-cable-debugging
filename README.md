@@ -86,7 +86,12 @@ Connection.connect
 ### Run log
 
 1. failure at message #2000 (3 broadcast runners)
-2. failure didn't occurr (10000 msgs) (3 broadcast runners)
+2. no failure (10000 msgs) (3 broadcast runners)
 3. failure at message #3595 (3 broadcast runners)
 4. failure at message #2367 (1 broadcast runner)
 5. failure at message #6285 (1 broadcast runner)
+6. failure at message #6147 (1 broadcast runner)
+
+maclover patch:
+1. no failure (10000 msgs) (1 broadcast runner)
+2. failure at message #9784 (1 broadcast runner)
