@@ -5,7 +5,7 @@ module ApplicationCable
     end
 
     def disconnect
-      logger.info "Connection.disconnect"
+      logger.info "Connection.disconnect\n"
     end
   end
 end

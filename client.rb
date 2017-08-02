@@ -3,7 +3,7 @@ require 'action_cable_client'
 
 puts "Process: #{Process.pid}"
 
-10_000.times do |i|
+100_000.times do |i|
   EventMachine.run do
     uri = "ws://localhost:3001/cable"
     client = ActionCableClient.new(uri, 'ChatChannel')
