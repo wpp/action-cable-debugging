@@ -101,7 +101,8 @@ maclover patch:
 6. failure at message #83132 (1 broadcast runner)
 
 wpp patch:
-1. no failure (398987 msgs)  (3 broadcast runners)
+1. no failure (100000 msgs)  (3 broadcast runners)
+2. no failure (100000 msgs)  (4 broadcast runners)
 
 #### Notes
 
