@@ -92,6 +92,9 @@ Connection.connect
 5. failure at message #6285  (1 broadcast runner)
 6. failure at message #6147  (1 broadcast runner)
 
+7. failure at message #5238  (1 broadcast runner)
+8. failure at message #5367  (1 broadcast runner)
+
 maclover patch:
 1. no failure (10000 msgs)   (1 broadcast runner)
 2. failure at message #9784  (1 broadcast runner)
@@ -211,4 +214,126 @@ respond_to_successful_request: [-1, {}, []]
 Connection.connect
 subscriptions: []
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+```
+
+##### more detailed logs with stack traces
+
+```log
+Started GET "/cable" for ::1 at 2017-08-09 14:44:31 +0200
+Started GET "/cable/" [WebSocket] for ::1 at 2017-08-09 14:44:31 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+PHIL 1: ActionCable::Connection::ClientSocket#open state: 0 70341387687140 ws://localhost:3001/cable #<Thread:0x007ff343e7b830>
+["/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:47:in `block in initialize'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:39:in `block in emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `each'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver.rb:139:in `open'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver.rb:105:in `start'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:65:in `start_driver'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:69:in `rack_response'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/web_socket.rb:32:in `rack_response'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/base.rb:213:in `respond_to_successful_request'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/base.rb:71:in `process'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/server/base.rb:28:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/mapper.rb:46:in `serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:46:in `block in serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:33:in `each'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:33:in `serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/route_set.rb:832:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'",
+"/Users/wpp/git/rails/activerecord/lib/active_record/migration.rb:556:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/callbacks.rb:97:in `run_callbacks'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/callbacks.rb:24:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/executor.rb:12:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:36:in `call_app'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:24:in `block in call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:69:in `block in tagged'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:26:in `tagged'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:69:in `tagged'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:24:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/request_id.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/executor.rb:12:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/static.rb:125:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'",
+"/Users/wpp/git/rails/railties/lib/rails/engine.rb:522:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/configuration.rb:224:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:602:in `handle_request'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:435:in `process_client'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:299:in `block in run'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/thread_pool.rb:120:in `block in spawn_thread'"]
+
+PHIL 1: ActionCable::Connection::ClientSocket#receive_message state: 0 70341387687140 ws://localhost:3001/cable #<Thread:0x007ff34397efd0>
+["/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:48:in `block in initialize'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:39:in `block in emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `each'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/hybi.rb:396:in `emit_message'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/hybi.rb:379:in `emit_frame'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/hybi.rb:123:in `parse'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:104:in `parse'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream.rb:93:in `receive'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:115:in `block (2 levels) in run'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:96:in `each'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:96:in `block in run'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:84:in `loop'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:84:in `run'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/stream_event_loop.rb:73:in `block (2 levels) in spawn'"]
+
+PHIL 2: ActionCable::Connection::ClientSocket#open state: 1 70341387687140 ws://localhost:3001/cable #<Thread:0x007ff343e7b830>
+["/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:47:in `block in initialize'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:39:in `block in emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `each'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver/event_emitter.rb:38:in `emit'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver.rb:139:in `open'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/websocket-driver-0.6.5/lib/websocket/driver.rb:105:in `start'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:65:in `start_driver'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/client_socket.rb:69:in `rack_response'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/web_socket.rb:32:in `rack_response'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/base.rb:213:in `respond_to_successful_request'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/connection/base.rb:71:in `process'",
+"/Users/wpp/git/rails/actioncable/lib/action_cable/server/base.rb:28:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/mapper.rb:46:in `serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:46:in `block in serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:33:in `each'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/journey/router.rb:33:in `serve'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/routing/route_set.rb:832:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'",
+"/Users/wpp/git/rails/activerecord/lib/active_record/migration.rb:556:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/callbacks.rb:97:in `run_callbacks'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/callbacks.rb:24:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/executor.rb:12:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:36:in `call_app'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:24:in `block in call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:69:in `block in tagged'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:26:in `tagged'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/tagged_logging.rb:69:in `tagged'",
+"/Users/wpp/git/rails/railties/lib/rails/rack/logger.rb:24:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/request_id.rb:25:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'",
+"/Users/wpp/git/rails/activesupport/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/executor.rb:12:in `call'",
+"/Users/wpp/git/rails/actionpack/lib/action_dispatch/middleware/static.rb:125:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'",
+"/Users/wpp/git/rails/railties/lib/rails/engine.rb:522:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/configuration.rb:224:in `call'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:602:in `handle_request'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:435:in `process_client'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/server.rb:299:in `block in run'",
+"/Users/wpp/.gem/ruby/2.3.3/gems/puma-3.9.1/lib/puma/thread_pool.rb:120:in `block in spawn_thread'"]
 ```
